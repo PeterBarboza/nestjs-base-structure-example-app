@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-defineConfig({
+module.exports = defineConfig({
   schema: './src/lib/drizzle/schema.ts',
   out: './drizzle/migrations',
   dialect: 'postgresql',
