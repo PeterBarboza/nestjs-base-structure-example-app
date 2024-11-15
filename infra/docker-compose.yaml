@@ -3,7 +3,7 @@ services:
   postgres:
     image: postgres:17
     ports:
-      - 5432:${DB_PORT}
+      - 5432:5432
     environment:
       POSTGRES_USER: ${DB_USER}
       PGUSER: ${DB_USER}
