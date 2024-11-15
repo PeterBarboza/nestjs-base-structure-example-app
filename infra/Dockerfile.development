@@ -1,0 +1,16 @@
+FROM node:23-alpine
+
+WORKDIR /usr/src/app
+
+COPY ./ ./
+
+COPY ./infra/entrypoint.development.sh ./entrypoint.development.sh
+RUN chmod +x ./entrypoint.development.sh
+
+RUN yarn install --frozen-lockfile
+
+RUN adduser -D appuser
+RUN chown -R appuser /usr/src/app
+USER appuser
+
+ENTRYPOINT "./entrypoint.development.sh"

@@ -1,8 +1,17 @@
+infra/.dockerignore 
+infra/.env 
+infra/docker-compose.development.yaml 
+infra/docker-compose.yaml 
+infra/Dockerfile 
+infra/Dockerfile.development 
+
+# Keep entrypoint files
+# infra/entrypoint.sh
+# infra/entrypoint.development.sh
+
 node_modules
-Dockerfile
-docker-compose.yaml
-gitignore
 .git
+.gitignore
 README.md
 assets
 yarn.lock
