@@ -5,10 +5,14 @@ import {
   DrizzleDatabase,
 } from '../../lib/drizzle/drizzle.provider';
 import * as schemas from '../../lib/drizzle/schema';
-import { CreateUserDto } from './dtos/createUser.dto';
+import {
+  CreateSingleUserParams,
+  CreateSingleUserResponse,
+  IUserRepository,
+} from '../../domain/repositories/user/user.repository.interface';
 
 @Injectable()
-export class UserRepository {
+export class UserRepository implements IUserRepository {
   constructor(
     @Inject(DrizzleAsyncProvider)
     private db: DrizzleDatabase,
@@ -26,12 +30,22 @@ export class UserRepository {
     });
   }
 
-  async createSingleUser(dto: CreateUserDto) {
-    await this.db.insert(schemas.users).values({
-      email: dto.email,
-      password: dto.password,
-    });
+  async createSingleUser(
+    dto: CreateSingleUserParams,
+  ): Promise<CreateSingleUserResponse> {
+    const result = await this.db
+      .insert(schemas.users)
+      .values({
+        email: dto.email,
+        password: dto.password,
+      })
+      .returning({
+        id: schemas.users.id,
+        createdAt: schemas.users.createdAt,
+        updatedAt: schemas.users.updatedAt,
+        email: schemas.users.email,
+      });
 
-    return dto;
+    return result[0];
   }
 }
