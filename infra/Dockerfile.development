@@ -2,14 +2,10 @@ FROM node:23-alpine
 
 WORKDIR /usr/src/app
 
-RUN chown -R node /usr/src/app && \
-    chmod u=rwx /usr/src/app
-
 COPY ./ ./
 COPY ./infra/entrypoint.development.sh ./entrypoint.development.sh
 
-USER node
-
-RUN yarn install --frozen-lockfile
+RUN yarn install --frozen-lockfile && \
+    chmod u=rwx ./entrypoint.development.sh
 
 ENTRYPOINT "./entrypoint.development.sh"
