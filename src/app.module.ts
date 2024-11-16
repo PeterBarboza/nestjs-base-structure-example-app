@@ -5,7 +5,7 @@ import { LoggerModule } from './lib/logger/logger.module';
 import { DrizzleModule } from './lib/drizzle/drizzle.module';
 import { ConfigModule } from '@nestjs/config';
 import { validate } from './common/config/environment-config.service';
-import { UserModule } from './modules/user/user.module';
+import { AuthModule } from './modules/auth-raw-jwt/auth-raw-jwt.module';
 
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
@@ -20,7 +20,7 @@ const IS_PRODUCTION = process.env.NODE_ENV === 'production';
     EnvironmentConfigModule,
     LoggerModule,
     DrizzleModule,
-    UserModule,
+    AuthModule,
   ],
 })
 export class AppModule {}

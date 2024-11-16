@@ -24,6 +24,9 @@ export class EnvironmentVariables {
 
   @IsString()
   DATABASE_URL: string;
+
+  @IsString()
+  JWT_SECRET: string;
 }
 
 export function validate(config: EnvironmentVariables) {
@@ -68,5 +71,8 @@ export class EnvironmentConfigService {
   }
   getDbUrl() {
     return this.config.get<string>('DATABASE_URL');
+  }
+  getJwtSecret() {
+    return this.config.get<string>('JWT_SECRET');
   }
 }
