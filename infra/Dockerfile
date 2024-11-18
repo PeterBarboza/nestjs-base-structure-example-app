@@ -18,18 +18,18 @@ FROM node:23-alpine as app
 
 WORKDIR /usr/src/app
 
-RUN chown -R node /usr/src/app && \
+RUN adduser -D appuser && \
+    chown -R appuser /usr/src/app && \
     chmod u=rwx /usr/src/app
 
-COPY ./infra/entrypoint.sh ./entrypoint.sh
 COPY --from=build /usr/src/app/package.json ./package.json
 COPY --from=build /usr/src/app/nest-cli.json ./nest-cli.json
 COPY --from=build /usr/src/app/drizzle.config.js ./drizzle.config.js
 COPY --from=build /usr/src/app/dist ./dist
 COPY --from=build /usr/src/app/drizzle ./drizzle
 
-USER node
+USER appuser
 
 RUN yarn install --production=true --frozen-lockfile
 
-ENTRYPOINT "./entrypoint.sh"
+CMD ["node", "./dist/main.js"]

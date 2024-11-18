@@ -3,9 +3,7 @@ FROM node:23-alpine
 WORKDIR /usr/src/app
 
 COPY ./ ./
-COPY ./infra/entrypoint.development.sh ./entrypoint.development.sh
 
-RUN yarn install --frozen-lockfile && \
-    chmod u=rwx ./entrypoint.development.sh
+RUN yarn install --frozen-lockfile
 
-ENTRYPOINT "./entrypoint.development.sh"
+CMD ["yarn", "start:debug"]

@@ -2,6 +2,7 @@ version: '3.8'
 services:
   postgres:
     image: postgres:17
+    restart: always
     ports:
       - 5432:5432
     environment:
@@ -18,10 +19,24 @@ services:
       retries: 5
       start_period: 30s
 
+  run-migrations:
+    build:
+      context: ../
+      dockerfile: ./infra/run-migrations/Dockerfile
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+    networks:
+      - nestjs-base-structure-example-app-prod-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+        required: true
+
   backend:
     build:
       context: ../
       dockerfile: ./infra/Dockerfile
+    restart: always
     ports:
       - ${APP_PORT}:${APP_PORT}
     environment:
@@ -36,6 +51,9 @@ services:
     networks:
       - nestjs-base-structure-example-app-prod-network
     depends_on:
+      run-migrations:
+        condition: service_completed_successfully
+        required: true
       postgres:
         condition: service_healthy
         required: true
