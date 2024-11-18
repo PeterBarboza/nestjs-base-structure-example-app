@@ -6,30 +6,28 @@ import { UserRepository } from '../user/user.repository';
 import { SignUpDto } from './dtos/sign-up.dto';
 import { SignInDto } from './dtos/sign-in.dto';
 import { Exceptions } from '../../common/exceptions/exceptions';
-import { EnvironmentConfigService } from '../../common/config/environment-config.service';
+import { IAuthService } from 'src/domain/modules/auth/auth.service.interface';
 
 @Injectable()
-export class AuthRawJwtService {
+export class AuthRawJwtService implements IAuthService {
   constructor(
     @Inject(UserRepository)
     private userRepository: UserRepository,
-    @Inject(EnvironmentConfigService)
-    private envConfig: EnvironmentConfigService,
     @Inject(JwtService)
     private jwtService: JwtService,
   ) {}
 
-  async signUp(dto: SignUpDto) {
-    const userAlreadyExists = await this.userRepository.findByEmail(dto.email);
+  async signUp(data: SignUpDto) {
+    const userAlreadyExists = await this.userRepository.findByEmail(data.email);
 
     if (userAlreadyExists) {
       Exceptions.BadRequest('Email already in use');
     }
 
-    const hashedPassword = await this.encriptPassword(dto.password);
+    const hashedPassword = await this.encriptPassword(data.password);
 
     const newUser = await this.userRepository.createSingleUser({
-      email: dto.email,
+      email: data.email,
       password: hashedPassword,
     });
 
@@ -45,15 +43,15 @@ export class AuthRawJwtService {
     };
   }
 
-  async signIn(dto: SignInDto) {
-    const user = await this.userRepository.findByEmail(dto.email);
+  async signIn(data: SignInDto) {
+    const user = await this.userRepository.findByEmail(data.email);
 
     if (!user) {
       Exceptions.Unauthorized('Email or password incorrect');
     }
 
     const passwordMatch = await this.comparePasswords(
-      dto.password,
+      data.password,
       user.password,
     );
 
