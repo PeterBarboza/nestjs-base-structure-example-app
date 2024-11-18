@@ -9,7 +9,7 @@ import {
   CreateSingleUserParams,
   CreateSingleUserResponse,
   IUserRepository,
-} from '../../domain/repositories/user/user.repository.interface';
+} from '../../domain/modules/user/user.repository.interface';
 
 @Injectable()
 export class UserRepository implements IUserRepository {
