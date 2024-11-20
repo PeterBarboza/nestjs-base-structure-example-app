@@ -6,6 +6,10 @@ export interface AuthenticatedResponse {
   refreshToken: string;
 }
 
+export interface IAuthenticatedUserData {
+  sub: string;
+}
+
 export interface IAuthService {
   signIn(data: ISignInDto): Promise<AuthenticatedResponse>;
   signUp(data: ISignUpDto): Promise<AuthenticatedResponse>;
