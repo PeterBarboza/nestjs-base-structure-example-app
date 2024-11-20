@@ -10,9 +10,6 @@ import { ProductsModule } from './modules/products/products.module';
 
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
-// TODO: Refac modules injection
-// // Handle 'Inject' in modules instead the dependant classes
-
 @Module({
   imports: [
     ConfigModule.forRoot({

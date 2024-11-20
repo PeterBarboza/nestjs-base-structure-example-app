@@ -2,17 +2,20 @@ import { Inject, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import bcrypt from 'bcryptjs';
 
-import { UserRepository } from '../user/user.repository';
 import { SignUpDto } from './dtos/sign-up.dto';
 import { SignInDto } from './dtos/sign-in.dto';
 import { Exceptions } from '../../common/exceptions/exceptions';
 import { IAuthService } from 'src/domain/modules/auth/auth.service.interface';
+import {
+  IUserRepository,
+  UserRepositoryToken,
+} from 'src/domain/modules/user/user.repository.interface';
 
 @Injectable()
 export class AuthRawJwtService implements IAuthService {
   constructor(
-    @Inject(UserRepository)
-    private userRepository: UserRepository,
+    @Inject(UserRepositoryToken)
+    private userRepository: IUserRepository,
     @Inject(JwtService)
     private jwtService: JwtService,
   ) {}

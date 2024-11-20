@@ -8,10 +8,10 @@ import { EnvironmentConfigService } from '../../common/config/environment-config
 
 export type DrizzleDatabase = NodePgDatabase<typeof schema>;
 
-export const DrizzleAsyncProvider = 'DrizzleAsyncProvider';
+export const DrizzleProviderToken = 'DrizzleProviderToken';
 
 export const drizzleProvider: Provider = {
-  provide: DrizzleAsyncProvider,
+  provide: DrizzleProviderToken,
   inject: [EnvironmentConfigService],
 
   useFactory: async (

@@ -10,3 +10,5 @@ export interface IUserRepository {
     dto: CreateSingleUserParams,
   ): Promise<CreateSingleUserResponse>;
 }
+
+export const UserRepositoryToken = Symbol('IUserRepository');

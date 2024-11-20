@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 
 import {
-  DrizzleAsyncProvider,
+  DrizzleProviderToken,
   DrizzleDatabase,
 } from '../../lib/drizzle/drizzle.provider';
 import * as schemas from '../../lib/drizzle/schema';
@@ -14,7 +14,7 @@ import {
 @Injectable()
 export class UserRepository implements IUserRepository {
   constructor(
-    @Inject(DrizzleAsyncProvider)
+    @Inject(DrizzleProviderToken)
     private db: DrizzleDatabase,
   ) {}
 

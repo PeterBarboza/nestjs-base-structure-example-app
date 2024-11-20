@@ -14,3 +14,5 @@ export interface IAuthService {
   signIn(data: ISignInDto): Promise<AuthenticatedResponse>;
   signUp(data: ISignUpDto): Promise<AuthenticatedResponse>;
 }
+
+export const AuthServiceToken = Symbol('IAuthService');

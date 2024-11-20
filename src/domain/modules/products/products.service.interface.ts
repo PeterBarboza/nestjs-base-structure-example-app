@@ -14,3 +14,5 @@ export interface IProductsService {
   updateSingleProduct(params: UpdateSingleProductParams): Promise<ProductModel>;
   deleteSingleProduct(params: DeleteSingleProductParams): Promise<void>;
 }
+
+export const ProductsServiceToken = Symbol('IProductsService');

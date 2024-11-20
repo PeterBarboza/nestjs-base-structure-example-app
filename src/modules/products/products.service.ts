@@ -1,20 +1,20 @@
 import { Inject, Injectable } from '@nestjs/common';
 
 import { IProductsService } from '../../domain/modules/products/products.service.interface';
-import { ProductsRepository } from './products.repository';
 import {
   CreateSingleProductParams,
   DeleteSingleProductParams,
   GetProductByIdParams,
   GetProductsParams,
   IProductsRepository,
+  ProductsRepositoryToken,
   UpdateSingleProductParams,
 } from 'src/domain/modules/products/products.repository.interface';
 
 @Injectable()
 export class ProductsService implements IProductsService {
   constructor(
-    @Inject(ProductsRepository)
+    @Inject(ProductsRepositoryToken)
     private productsRepository: IProductsRepository,
   ) {}
 

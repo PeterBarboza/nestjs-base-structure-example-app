@@ -34,3 +34,5 @@ export interface IProductsRepository {
   updateSingleProduct(params: UpdateSingleProductParams): Promise<ProductModel>;
   deleteSingleProduct(params: DeleteSingleProductParams): Promise<void>;
 }
+
+export const ProductsRepositoryToken = Symbol('IProductsRepository');

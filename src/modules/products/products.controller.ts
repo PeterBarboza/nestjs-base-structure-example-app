@@ -11,7 +11,6 @@ import {
   UseGuards,
 } from '@nestjs/common';
 
-import { ProductsService } from './products.service';
 import { IProductsController } from '../../domain/modules/products/products.controller.interface';
 import { ProductModel } from 'src/domain/models/product';
 import { IAuthenticatedUserData } from 'src/domain/modules/auth/auth.service.interface';
@@ -25,13 +24,17 @@ import {
 } from './dtos/update-single-product.dto';
 import { GetProductByIdParamsDto } from './dtos/get-product-by-id.dto';
 import { DeleteSingleProductParamsDto } from './dtos/delete-single-product.dto';
+import {
+  IProductsService,
+  ProductsServiceToken,
+} from 'src/domain/modules/products/products.service.interface';
 
 @Controller('products')
 @UseGuards(AuthGuard)
 export class ProductsController implements IProductsController {
   constructor(
-    @Inject(ProductsService)
-    private productsService: ProductsService,
+    @Inject(ProductsServiceToken)
+    private productsService: IProductsService,
   ) {}
 
   @Get()
