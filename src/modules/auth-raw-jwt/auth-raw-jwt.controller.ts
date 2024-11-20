@@ -1,12 +1,12 @@
 import { Body, Controller, Inject, Post } from '@nestjs/common';
 
-import { SignInDto } from './dtos/sign-in.dto';
-import { SignUpDto } from './dtos/sign-up.dto';
-import { IAuthController } from '../../domain/modules/auth/auth.controller.interface';
+import { SignInDto } from '@/modules/auth-raw-jwt/dtos/sign-in.dto';
+import { SignUpDto } from '@/modules/auth-raw-jwt/dtos/sign-up.dto';
+import { IAuthController } from '@/domain/modules/auth/auth.controller.interface';
 import {
   AuthServiceToken,
   IAuthService,
-} from 'src/domain/modules/auth/auth.service.interface';
+} from '@/domain/modules/auth/auth.service.interface';
 
 @Controller('auth')
 export class AuthRawJwtController implements IAuthController {

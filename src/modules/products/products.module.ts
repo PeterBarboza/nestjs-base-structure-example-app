@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 
-import { ProductsService } from './products.service';
-import { ProductsController } from './products.controller';
-import { ProductsRepository } from './products.repository';
-import { ProductsRepositoryToken } from '../../domain/modules/products/products.repository.interface';
-import { DrizzleModule } from 'src/lib/drizzle/drizzle.module';
-import { ProductsServiceToken } from 'src/domain/modules/products/products.service.interface';
+import { ProductsService } from '@/modules/products/products.service';
+import { ProductsController } from '@/modules/products/products.controller';
+import { ProductsRepository } from '@/modules/products/products.repository';
+import { ProductsRepositoryToken } from '@/domain/modules/products/products.repository.interface';
+import { DrizzleModule } from '@/lib/drizzle/drizzle.module';
+import { ProductsServiceToken } from '@/domain/modules/products/products.service.interface';
 
 @Module({
   imports: [DrizzleModule],

@@ -1,6 +1,6 @@
 import { IsEmail, IsStrongPassword, MaxLength } from 'class-validator';
 
-import { ISignUpDto } from '../../../domain/modules/auth/dtos/sign-up.dto.interface';
+import { ISignUpDto } from '@/domain/modules/auth/dtos/sign-up.dto.interface';
 
 export class SignUpDto implements ISignUpDto {
   @IsEmail()

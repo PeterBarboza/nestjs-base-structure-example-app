@@ -3,7 +3,7 @@ import { IsNumberString, IsString, IsUUID, IsOptional } from 'class-validator';
 import {
   IUpdateSingleProductBodyDto,
   IUpdateSingleProductParamsDto,
-} from 'src/domain/modules/products/dtos/update-single-product.dto.interface';
+} from '@/domain/modules/products/dtos/update-single-product.dto.interface';
 
 export class UpdateSingleProductParamsDto
   implements IUpdateSingleProductParamsDto

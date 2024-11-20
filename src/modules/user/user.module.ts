@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 
-import { UserRepository } from './user.repository';
-import { DrizzleModule } from '../../lib/drizzle/drizzle.module';
-import { UserRepositoryToken } from 'src/domain/modules/user/user.repository.interface';
+import { UserRepository } from '@/modules/user/user.repository';
+import { DrizzleModule } from '@/lib/drizzle/drizzle.module';
+import { UserRepositoryToken } from '@/domain/modules/user/user.repository.interface';
 
 @Module({
   imports: [DrizzleModule],

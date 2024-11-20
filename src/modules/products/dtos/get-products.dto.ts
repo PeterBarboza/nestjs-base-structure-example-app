@@ -1,6 +1,6 @@
 import { IsNumber, Max, Min } from 'class-validator';
 
-import { IGetProductsQueryDto } from 'src/domain/modules/products/dtos/get-products.dto.interface';
+import { IGetProductsQueryDto } from '@/domain/modules/products/dtos/get-products.dto.interface';
 
 export class GetProductsQueryDto implements IGetProductsQueryDto {
   @IsNumber()

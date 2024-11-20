@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 
-import { IProductsService } from '../../domain/modules/products/products.service.interface';
+import { IProductsService } from '@/domain/modules/products/products.service.interface';
 import {
   CreateSingleProductParams,
   DeleteSingleProductParams,
@@ -9,7 +9,7 @@ import {
   IProductsRepository,
   ProductsRepositoryToken,
   UpdateSingleProductParams,
-} from 'src/domain/modules/products/products.repository.interface';
+} from '@/domain/modules/products/products.repository.interface';
 
 @Injectable()
 export class ProductsService implements IProductsService {

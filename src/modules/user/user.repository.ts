@@ -3,13 +3,13 @@ import { Inject, Injectable } from '@nestjs/common';
 import {
   DrizzleProviderToken,
   DrizzleDatabase,
-} from '../../lib/drizzle/drizzle.provider';
-import * as schemas from '../../lib/drizzle/schema';
+} from '@/lib/drizzle/drizzle.provider';
+import * as schemas from '@/lib/drizzle/schema';
 import {
   CreateSingleUserParams,
   CreateSingleUserResponse,
   IUserRepository,
-} from '../../domain/modules/user/user.repository.interface';
+} from '@/domain/modules/user/user.repository.interface';
 
 @Injectable()
 export class UserRepository implements IUserRepository {

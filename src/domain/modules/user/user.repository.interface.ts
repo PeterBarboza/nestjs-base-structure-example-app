@@ -1,4 +1,4 @@
-import { UserModel } from '../../models/user';
+import { UserModel } from '@/domain/models/user';
 
 export type CreateSingleUserParams = Pick<UserModel, 'email' | 'password'>;
 export type CreateSingleUserResponse = Omit<UserModel, 'password'>;

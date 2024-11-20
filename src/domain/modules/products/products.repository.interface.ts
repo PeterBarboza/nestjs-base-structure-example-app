@@ -1,4 +1,4 @@
-import { ProductModel } from '../../models/product';
+import { ProductModel } from '@/domain/models/product';
 
 interface BaseParams<Options extends object> {
   userId: string;

@@ -4,8 +4,8 @@ import { and, eq } from 'drizzle-orm';
 import {
   DrizzleProviderToken,
   DrizzleDatabase,
-} from '../../lib/drizzle/drizzle.provider';
-import * as schemas from '../../lib/drizzle/schema';
+} from '@/lib/drizzle/drizzle.provider';
+import * as schemas from '@/lib/drizzle/schema';
 import {
   IProductsRepository,
   GetProductsParams,
@@ -13,7 +13,7 @@ import {
   CreateSingleProductParams,
   UpdateSingleProductParams,
   DeleteSingleProductParams,
-} from '../../domain/modules/products/products.repository.interface';
+} from '@/domain/modules/products/products.repository.interface';
 
 @Injectable()
 export class ProductsRepository implements IProductsRepository {

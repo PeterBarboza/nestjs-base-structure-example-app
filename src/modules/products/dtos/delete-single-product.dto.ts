@@ -1,6 +1,6 @@
 import { IsUUID } from 'class-validator';
 
-import { IDeleteSingleProductParamsDto } from 'src/domain/modules/products/dtos/delete-single-product.dto.interface';
+import { IDeleteSingleProductParamsDto } from '@/domain/modules/products/dtos/delete-single-product.dto.interface';
 
 export class DeleteSingleProductParamsDto
   implements IDeleteSingleProductParamsDto

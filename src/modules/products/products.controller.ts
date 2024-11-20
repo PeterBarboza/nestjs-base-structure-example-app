@@ -11,19 +11,19 @@ import {
   UseGuards,
 } from '@nestjs/common';
 
-import { IProductsController } from '../../domain/modules/products/products.controller.interface';
-import { ProductModel } from 'src/domain/models/product';
-import { IAuthenticatedUserData } from 'src/domain/modules/auth/auth.service.interface';
-import { AuthenticatedUser } from '../auth-raw-jwt/auth-raw-jwt.decorator';
-import { AuthGuard } from '../auth-raw-jwt/auth-raw-jwt.guard';
-import { GetProductsQueryDto } from './dtos/get-products.dto';
-import { CreateSingleProductBodyDto } from './dtos/create-single-product.dto';
+import { IProductsController } from '@/domain/modules/products/products.controller.interface';
+import { ProductModel } from '@/domain/models/product';
+import { IAuthenticatedUserData } from '@/domain/modules/auth/auth.service.interface';
+import { AuthenticatedUser } from '@/modules/auth-raw-jwt/auth-raw-jwt.decorator';
+import { AuthGuard } from '@/modules/auth-raw-jwt/auth-raw-jwt.guard';
+import { GetProductsQueryDto } from '@/modules/products/dtos/get-products.dto';
+import { CreateSingleProductBodyDto } from '@/modules/products/dtos/create-single-product.dto';
 import {
   UpdateSingleProductBodyDto,
   UpdateSingleProductParamsDto,
-} from './dtos/update-single-product.dto';
-import { GetProductByIdParamsDto } from './dtos/get-product-by-id.dto';
-import { DeleteSingleProductParamsDto } from './dtos/delete-single-product.dto';
+} from '@/modules/products/dtos/update-single-product.dto';
+import { GetProductByIdParamsDto } from '@/modules/products/dtos/get-product-by-id.dto';
+import { DeleteSingleProductParamsDto } from '@/modules/products/dtos/delete-single-product.dto';
 import {
   IProductsService,
   ProductsServiceToken,

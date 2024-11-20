@@ -1,4 +1,4 @@
-import { ProductModel } from '../../models/product';
+import { ProductModel } from '@/domain/models/product';
 import {
   GetProductsParams,
   GetProductByIdParams,

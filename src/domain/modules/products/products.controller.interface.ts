@@ -1,13 +1,13 @@
-import { ProductModel } from '../../models/product';
-import { IAuthenticatedUserData } from '../auth/auth.service.interface';
-import { IGetProductsQueryDto } from './dtos/get-products.dto.interface';
-import { ICreateSingleProductBodyDto } from './dtos/create-single-product.dto.interface';
+import { ProductModel } from '@/domain/models/product';
+import { IAuthenticatedUserData } from '@/domain/modules/auth/auth.service.interface';
+import { IGetProductsQueryDto } from '@/domain/modules/products/dtos/get-products.dto.interface';
+import { ICreateSingleProductBodyDto } from '@/domain/modules/products/dtos/create-single-product.dto.interface';
 import {
   IUpdateSingleProductBodyDto,
   IUpdateSingleProductParamsDto,
-} from './dtos/update-single-product.dto.interface';
-import { IGetProductByIdParamsDto } from './dtos/get-product-by-id.dto.interface';
-import { IDeleteSingleProductParamsDto } from './dtos/delete-single-product.dto.interface';
+} from '@/domain/modules/products/dtos/update-single-product.dto.interface';
+import { IGetProductByIdParamsDto } from '@/domain/modules/products/dtos/get-product-by-id.dto.interface';
+import { IDeleteSingleProductParamsDto } from '@/domain/modules/products/dtos/delete-single-product.dto.interface';
 
 export interface IProductsController {
   getProducts(
