@@ -1,4 +1,4 @@
-import { IsNumberString, IsString, IsUUID } from 'class-validator';
+import { IsNumberString, IsString, IsUUID, IsOptional } from 'class-validator';
 
 import {
   IUpdateSingleProductBodyDto,
@@ -13,9 +13,11 @@ export class UpdateSingleProductParamsDto
 }
 
 export class UpdateSingleProductBodyDto implements IUpdateSingleProductBodyDto {
+  @IsOptional()
   @IsString()
   name?: string;
 
+  @IsOptional()
   @IsNumberString()
   price?: string;
 }
