@@ -12,6 +12,6 @@ import { UserRepositoryToken } from 'src/domain/modules/user/user.repository.int
       useClass: UserRepository,
     },
   ],
-  exports: [UserRepository],
+  exports: [UserRepositoryToken],
 })
 export class UserModule {}
