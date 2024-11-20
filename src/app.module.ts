@@ -6,8 +6,12 @@ import { DrizzleModule } from './lib/drizzle/drizzle.module';
 import { ConfigModule } from '@nestjs/config';
 import { validate } from './common/config/environment-config.service';
 import { AuthModule } from './modules/auth-raw-jwt/auth-raw-jwt.module';
+import { ProductsModule } from './modules/products/products.module';
 
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
+
+// TODO: Refac modules injection
+// // Handle 'Inject' in modules instead the dependant classes
 
 @Module({
   imports: [
@@ -21,6 +25,7 @@ const IS_PRODUCTION = process.env.NODE_ENV === 'production';
     LoggerModule,
     DrizzleModule,
     AuthModule,
+    ProductsModule,
   ],
 })
 export class AppModule {}
