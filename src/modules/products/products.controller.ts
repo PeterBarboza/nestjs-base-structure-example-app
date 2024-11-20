@@ -28,6 +28,7 @@ import {
   IProductsService,
   ProductsServiceToken,
 } from 'src/domain/modules/products/products.service.interface';
+import { Exceptions } from '@/common/exceptions/exceptions';
 
 @Controller('products')
 @UseGuards(AuthGuard)
@@ -93,6 +94,10 @@ export class ProductsController implements IProductsController {
     @Body()
     body: UpdateSingleProductBodyDto,
   ): Promise<ProductModel> {
+    if (!body.name && !body.price) {
+      Exceptions.BadRequest('At least one property need to be defined');
+    }
+
     return await this.productsService.updateSingleProduct({
       params: {
         data: {
